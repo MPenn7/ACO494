@@ -46,12 +46,18 @@ public class RedirectServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = request.getServletPath().toString();
-		if (url.endsWith(".aspx")) {
-			url = url.substring(0, url.lastIndexOf(".aspx")) + ".jsp";
-		}
-		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-		dispatcher.forward(request, response);
-	}
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String redirectUrl = request.getServletPath().toString();
+        String query = request.getQueryString();
+        if (query.contains ("fwd"))
+            {
+                String fwd = request.getParameter("fwd");
+                try {
+                    request.getRequestDispatcher(fwd).forward(request, response);
+                }
+                catch (ServletException e){
+                    e.printStackTrace();
+                }
+            }
+    }
 }

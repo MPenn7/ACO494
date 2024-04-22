@@ -217,6 +217,10 @@
     <url-pattern>/static/doSurvey</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
+    <servlet-name>RedirectServlet</servlet-name>
+    <url-pattern>/redirect</url-pattern>
+</servlet-mapping>
+  <servlet-mapping>
     <servlet-name>jsp</servlet-name>
     <url-pattern>*.jspf</url-pattern>
     <url-pattern>*.jsp</url-pattern>

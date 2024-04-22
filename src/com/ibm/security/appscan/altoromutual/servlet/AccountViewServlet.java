@@ -47,13 +47,11 @@ public class AccountViewServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//show account balance for a particular account
+		
 		if (request.getRequestURL().toString().endsWith("showAccount")){
 			String accountName = request.getParameter("listAccounts");
-			if (accountName == null){
-				response.sendRedirect(request.getContextPath()+"/bank/main.jsp");
-				return;
-			}
-//			response.sendRedirect("/bank/balance.jsp&acctId=" + accountName);
+			
+			//response.sendRedirect("/bank/balance.jsp&acctId=" + accountName);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/bank/balance.jsp?acctId=" + accountName);
 			dispatcher.forward(request, response);
 			return;

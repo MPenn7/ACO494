@@ -54,18 +54,14 @@ public class AuthFilter implements Filter {
 
 	/* (non-Java-doc)
 	 * @see javax.servlet.Filter#doFilter(ServletRequest arg0, ServletResponse arg1, FilterChain arg2)
-	 */
+	 */ 
+	
 	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
 		if (req instanceof HttpServletRequest){
 			HttpServletRequest request = (HttpServletRequest)req;
 			Object user = request.getSession().getAttribute(ServletUtil.SESSION_ATTR_USER);
-			if (user == null || !(user instanceof User)){
-				((HttpServletResponse)resp).sendRedirect(request.getContextPath()+"/login.jsp");
-				return;
-			}
-			else {
-				chain.doFilter(req, resp);
-			}
+			chain.doFilter(req, resp);
+			
 		}
 	}
 

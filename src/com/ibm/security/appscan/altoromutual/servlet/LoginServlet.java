@@ -83,6 +83,7 @@ public class LoginServlet extends HttpServlet {
 				Log4AltoroJ.getInstance().logError("Login failed >>> User: " +username + " >>> Password: " + password);
 				throw new Exception("Login Failed: We're sorry, but this username or password was not found in our system. Please try again.");
 			}
+			
 		} catch (Exception ex) {
 			request.getSession(true).setAttribute("loginError", ex.getLocalizedMessage());
 			response.sendRedirect("login.jsp");

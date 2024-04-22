@@ -40,7 +40,7 @@ import javax.servlet.http.HttpSession;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.apache.commons.lang.StringEscapeUtils;
-import org.apache.wink.json4j.JSONObject;
+import org.json.JSONObject;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -401,7 +401,7 @@ public class ServletUtil {
 												+ "Please set \"basePath\" property in /WebContent/swagger/properties.json file manually to match your context path with /api suffix\n"
 												+ "For example: /AltoroJ/api if AltoroJ index page is at http://appscanvm/AltoroJ/index.html /n"
 												+ "Error message: " + e.getMessage());
-//			e.printStackTrace();
+			e.printStackTrace();
 		}
 		
 		//parse swagger properties

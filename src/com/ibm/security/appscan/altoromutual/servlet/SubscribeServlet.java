@@ -34,17 +34,13 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class SubscribeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String LEGAL_EMAIL_ADDRESS = "^[\\w\\d\\.\\%-]+@[\\w\\d\\.\\%-]+\\.\\w{2,4}$";
+	//private static final String LEGAL_EMAIL_ADDRESS = "^[\\w\\d\\.\\%-]+@[\\w\\d\\.\\%-]+\\.\\w{2,4}$";
        
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email = request.getParameter("txtEmail");
-		if (email == null || !email.matches(LEGAL_EMAIL_ADDRESS)){
-			response.sendRedirect("index.jsp");
-			return;
-		}
 		
 		//don't actually subscribe the user
 		request.setAttribute("message_subscribe", "Thank you. Your email " + email + " has been accepted.");
